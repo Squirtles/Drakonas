@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html>
+
 <head>
     <meta charset="utf-8" />
     <title>Drakonas</title>
@@ -9,53 +10,55 @@
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/game.css" />
 </head>
+
 <body>
+    <div id="container">
+        <div class="text-center">Loading...</div>
+    </div>
 
-<!-- Pump Fun Coin Address Section -->
-<div id="coin-address-section" style="text-align: center; padding: 20px; background-color: #e0e0e0;">
-    <h2 style="font-size: 24px; color: #555;">Pump Fun Coin Address</h2>
-    <p id="coin-address" style="font-size: 18px; color: #333; margin: 10px 0;">0xYourPumpFunCoinAddressHere</p>
-    <button id="copy-address-button" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Copy Address</button>
-</div>
 
-<!-- Existing Container -->
-<div id="container">
-    <div class="text-center">Loading...</div>
-</div>
+    <!-- Pump Fun Coin Address Section -->
+    <div id="coin-address-section"
+        style="text-align: center; margin-top: 20px; padding: 20px; background-color: #e0e0e0;">
+        <h2 style="font-size: 24px; color: #555;">Pump Fun Coin Address</h2>
+        <p id="coin-address" style="font-size: 18px; color: #333; margin: 10px 0;">0xYourPumpFunCoinAddressHere</p>
+        <button id="copy-address-button"
+            style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Copy
+            Address</button>
+    </div>
 
-<!-- Existing Scripts -->
-<script src="js/lib/dom.js"></script>
-<script src="js/lib/json.js"></script>
-<script src="js/lib/three.min.js"></script>
-<script src="js/lib/tween.js"></script>
-<script src="js/lib/loader-manger.js"></script>
-<script src="js/lib/objloader.js"></script>
-<script src="js/lib/ImprovedNoise.js"></script>
-<script src="js/main.js"></script>
-<script src="js/weapons.js"></script>
-<script src="js/player.js"></script>
-<script src="js/controls.js"></script>
-<script src="js/game.settings.js"></script>
-<script src="js/game.js"></script>
-<script src="js/menu.js"></script>
-<script src="js/hangar.js"></script>
+    <script src="js/lib/dom.js"></script>
+    <script src="js/lib/json.js"></script>
+    <script src="js/lib/three.min.js"></script>
+    <script src="js/lib/tween.js"></script>
+    <script src="js/lib/loader-manger.js"></script>
+    <script src="js/lib/objloader.js"></script>
+    <script src="js/lib/ImprovedNoise.js"></script>
+    <script src="js/main.js"></script>
+    <script src="js/weapons.js"></script>
+    <script src="js/player.js"></script>
+    <script src="js/controls.js"></script>
+    <script src="js/game.settings.js"></script>
+    <script src="js/game.js"></script>
+    <script src="js/menu.js"></script>
+    <script src="js/hangar.js"></script>
 
-<!-- Copy Functionality -->
-<script>
-    document.getElementById('copy-address-button').addEventListener('click', function() {
-        const coinAddress = document.getElementById('coin-address').innerText;
-        navigator.clipboard.writeText(coinAddress).then(function() {
-            alert('Coin address copied to clipboard!');
-        }).catch(function(error) {
-            console.error('Failed to copy address: ', error);
+    <!-- Add the copy functionality -->
+    <script>
+        document.getElementById('copy-address-button').addEventListener('click', function () {
+            const coinAddress = document.getElementById('coin-address').innerText;
+            navigator.clipboard.writeText(coinAddress).then(function () {
+                alert('Coin address copied to clipboard!');
+            }).catch(function (error) {
+                console.error('Failed to copy address: ', error);
+            });
         });
-    });
-</script>
+    </script>
 
-<!-- Existing Containers -->
-<div class="info-window hidden" id="window-options"></div>
-<div id="full-container"></div>
-<div id="b-container"></div>
-<div id="background-container"></div>
+    <div class="info-window hidden" id="window-options"></div>
+    <div id="full-container"></div>
+    <div id="b-container"></div>
+    <div id="background-container"></div>
 </body>
+
 </html>
