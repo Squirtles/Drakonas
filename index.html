@@ -13,38 +13,14 @@
 
 <body>
     <div id="container">
-        <div class="title text-center">Drakonas</div>
-        <div class="menu">
-            <a id="start">Start game</a>
-            <a id="shop">Shop</a>
-            <a id="options">Options</a>
-            <a id="credits">Credits</a>
-            <a id="help">Help</a>
-            <a id="highscores">Highscores</a>
-            <a id="exit">Exit</a>
-        </div>
-        <div class="info-window hidden" id="window-credits">
-            <h1 class="text-center">Credits</h1>
-            <b class="credits-left">Lead Programmer</b>
-            <i class="credits-right">Mathieu de Ruiter</i><br>
-            <b class="credits-left">Lead 3D Designer</b>
-            <i class="credits-right">Timothy Beuving</i><br>
-            <b class="credits-left">Designer</b>
-            <i class="credits-right">Erik van der Kruk</i>
-        </div>
-        <div class="info-window hidden" id="window-help">
-            <h1 class="text-center">Help</h1>
-            <p>You need help? No. We need help! Help us build an amazing game! Check out our
-                <a href="https://github.com/Casmo/Drakonas" target="_blank">Github repository</a>.
-            </p>
-        </div>
+        <div class="text-center">Loading...</div>
     </div>
 
     <!-- Pump Fun Coin Address Section -->
-    <div id="coin-address-section" style="text-align: center; margin-top: 20px; padding: 20px; background-color: #e0e0e0;">
+    <div id="coin-address-section"
+        style="text-align: center; margin-top: 20px; padding: 20px; background-color: #e0e0e0;">
         <h2 style="font-size: 24px; color: #555;">Pump Fun Coin Address</h2>
         <p id="coin-address" style="font-size: 18px; color: #333; margin: 10px 0;">0xYourPumpFunCoinAddressHere</p>
-        <button id="copy-address-button" style="padding: 10px 20px; font-size: 16px; cursor: pointer; background-color: #007bff; color: #fff; border: none; border-radius: 5px;">Copy Address</button>
     </div>
 
     <!-- Scripts -->
@@ -64,48 +40,11 @@
     <script src="js/menu.js"></script>
     <script src="js/hangar.js"></script>
 
-    <!-- Copy Functionality -->
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            const copyButton = document.getElementById('copy-address-button');
-            const coinAddressElement = document.getElementById('coin-address');
-
-            if (!copyButton || !coinAddressElement) {
-                console.error('Copy button or coin address element not found!');
-                return;
-            }
-
-            copyButton.addEventListener('click', async function () {
-                const coinAddress = coinAddressElement.innerText;
-
-                try {
-                    // Use the modern Clipboard API
-                    await navigator.clipboard.writeText(coinAddress);
-                    alert('Coin address copied to clipboard!');
-                } catch (error) {
-                    console.error('Failed to copy address: ', error);
-
-                    // Fallback for older browsers or non-secure contexts
-                    const tempTextArea = document.createElement('textarea');
-                    tempTextArea.value = coinAddress;
-                    document.body.appendChild(tempTextArea);
-                    tempTextArea.select();
-                    document.execCommand('copy');
-                    document.body.removeChild(tempTextArea);
-
-                    alert('Coin address copied to clipboard! (Fallback method)');
-                }
-            });
-        });
-    </script>
-
     <!-- Additional Containers -->
     <div class="info-window hidden" id="window-options"></div>
     <div id="full-container"></div>
     <div id="b-container"></div>
-    <div id="background-container">
-        <canvas width="400" height="870" style="width: 400px; height: 870px;"></canvas>
-    </div>
+    <div id="background-container"></div>
 </body>
 
 </html>
