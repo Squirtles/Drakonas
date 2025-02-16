@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 
 <head>
     <meta charset="utf-8" />
@@ -16,7 +16,6 @@
         <div class="text-center">Loading...</div>
     </div>
 
-
     <!-- Pump Fun Coin Address Section -->
     <div id="coin-address-section"
         style="text-align: center; margin-top: 20px; padding: 20px; background-color: #e0e0e0;">
@@ -27,6 +26,7 @@
             Address</button>
     </div>
 
+    <!-- Scripts -->
     <script src="js/lib/dom.js"></script>
     <script src="js/lib/json.js"></script>
     <script src="js/lib/three.min.js"></script>
@@ -43,18 +43,32 @@
     <script src="js/menu.js"></script>
     <script src="js/hangar.js"></script>
 
-    <!-- Add the copy functionality -->
+    <!-- Copy Functionality -->
     <script>
-        document.getElementById('copy-address-button').addEventListener('click', function () {
-            const coinAddress = document.getElementById('coin-address').innerText;
-            navigator.clipboard.writeText(coinAddress).then(function () {
-                alert('Coin address copied to clipboard!');
-            }).catch(function (error) {
-                console.error('Failed to copy address: ', error);
+        document.addEventListener('DOMContentLoaded', function () {
+            const copyButton = document.getElementById('copy-address-button');
+            const coinAddressElement = document.getElementById('coin-address');
+
+            if (!copyButton || !coinAddressElement) {
+                console.error('Copy button or coin address element not found!');
+                return;
+            }
+
+            copyButton.addEventListener('click', async function () {
+                const coinAddress = coinAddressElement.innerText;
+
+                try {
+                    await navigator.clipboard.writeText(coinAddress);
+                    alert('Coin address copied to clipboard!');
+                } catch (error) {
+                    console.error('Failed to copy address: ', error);
+                    alert('Failed to copy address. Please try again or copy manually.');
+                }
             });
         });
     </script>
 
+    <!-- Additional Containers -->
     <div class="info-window hidden" id="window-options"></div>
     <div id="full-container"></div>
     <div id="b-container"></div>
