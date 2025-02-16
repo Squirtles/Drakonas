@@ -8,72 +8,50 @@
     <link rel="stylesheet" href="css/main.css" />
     <link rel="stylesheet" href="css/menu.css" />
     <link rel="stylesheet" href="css/game.css" />
-    <style>
-        /* Basic styles for the coin address section */
-        #coin-address {
-            margin: 20px;
-            padding: 10px;
-            background: #f2f2f2;
-            border: 1px solid #ccc;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-        }
-        #coin-address span {
-            font-family: monospace;
-        }
-        #copyButton {
-            padding: 5px 10px;
-            cursor: pointer;
-        }
-    </style>
 </head>
 <body>
-    <h1 style="text-align: center;">Drakonas</h1>
-    <!-- Coin address section -->
-    <div id="coin-address" style="text-align: center;">
-        <span id="coinAddressText">1CoinAddressExampleXYZ</span>
-        <button id="copyButton">Copy</button>
-    </div>
+<div id="container">
+    <div class="text-center">Loading...</div>
+</div>
 
-    <div id="container">
-        <div class="text-center">Loading...</div>
-    </div>
-    
-    <script src="js/lib/dom.js"></script>
-    <script src="js/lib/json.js"></script>
-    <script src="js/lib/three.min.js"></script>
-    <script src="js/lib/tween.js"></script>
-    <script src="js/lib/loader-manger.js"></script>
-    <script src="js/lib/objloader.js"></script>
-    <script src="js/lib/ImprovedNoise.js"></script>
-    <script src="js/main.js"></script>
-    <script src="js/weapons.js"></script>
-    <script src="js/player.js"></script>
-    <script src="js/controls.js"></script>
-    <script src="js/game.settings.js"></script>
-    <script src="js/game.js"></script>
-    <script src="js/menu.js"></script>
-    <script src="js/hangar.js"></script>
-    
-    <div class="info-window hidden" id="window-options"></div>
-    <div id="full-container"></div>
-    <div id="b-container"></div>
-    <div id="background-container"></div>
-    
-    <script>
-        // Add event listener for the copy button
-        document.getElementById('copyButton').addEventListener('click', function() {
-            const addressText = document.getElementById('coinAddressText').textContent;
-            // Copy the coin address to the clipboard using the Clipboard API
-            navigator.clipboard.writeText(addressText)
-                .then(() => {
-                    alert('Coin address copied to clipboard!');
-                })
-                .catch(err => {
-                    console.error('Failed to copy!', err);
-                });
+<!-- Add the Pump Fun coin address and copy button -->
+<div id="coin-address-container" style="text-align: center; margin-top: 20px;">
+    <h2>Pump Fun Coin Address</h2>
+    <p id="coin-address" style="font-size: 16px; color: #333;">0xYourPumpFunCoinAddressHere</p>
+    <button id="copy-address-button" style="padding: 10px 20px; font-size: 14px; cursor: pointer;">Copy Address</button>
+</div>
+
+<script src="js/lib/dom.js"></script>
+<script src="js/lib/json.js"></script>
+<script src="js/lib/three.min.js"></script>
+<script src="js/lib/tween.js"></script>
+<script src="js/lib/loader-manger.js"></script>
+<script src="js/lib/objloader.js"></script>
+<script src="js/lib/ImprovedNoise.js"></script>
+<script src="js/main.js"></script>
+<script src="js/weapons.js"></script>
+<script src="js/player.js"></script>
+<script src="js/controls.js"></script>
+<script src="js/game.settings.js"></script>
+<script src="js/game.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/hangar.js"></script>
+
+<!-- Add the copy functionality -->
+<script>
+    document.getElementById('copy-address-button').addEventListener('click', function() {
+        const coinAddress = document.getElementById('coin-address').innerText;
+        navigator.clipboard.writeText(coinAddress).then(function() {
+            alert('Coin address copied to clipboard!');
+        }).catch(function(error) {
+            console.error('Failed to copy address: ', error);
         });
-    </script>
+    });
+</script>
+
+<div class="info-window hidden" id="window-options"></div>
+<div id="full-container"></div>
+<div id="b-container"></div>
+<div id="background-container"></div>
 </body>
 </html>
